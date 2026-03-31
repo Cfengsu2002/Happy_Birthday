@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #fff7ea 0%, #f1ddc8 45%, #d8b08f 100%);
+  color: #5f3b25;
+}
+
+.card {
+  @apply rounded-teddy bg-teddy-cream/95 shadow-teddy border border-teddy-base/20;
+}
+
+.warm-btn {
+  @apply rounded-full px-5 py-3 font-semibold transition-all duration-300 hover:scale-105 active:scale-95;
+}
+
+.float-soft {
+  animation: floatSoft 3s ease-in-out infinite;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.pop-in {
+  animation: popIn 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glow-text {
+  text-shadow:
+    0 0 12px rgba(255, 221, 158, 0.55),
+    0 0 22px rgba(246, 209, 209, 0.45);
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
