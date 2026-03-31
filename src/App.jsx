@@ -29,6 +29,8 @@ const GAME1_BOMB_CHANCE = 0.34
 
 /** Game 3: catches needed to continue */
 const FALL_CATCH_GOAL = 20
+/** Blow candles via mic when average level exceeds this (0–1) */
+const MIC_BLOW_THRESHOLD = 0.2
 
 function reshuffleFlipCards() {
   const base = ['🧸', '🎂', '🎁', '🎈']
@@ -739,7 +741,7 @@ function App() {
     if (!micReady || step !== 4 || litCandles === 0) return
     const tick = setInterval(() => {
       setMicLevel((lvl) => {
-        if (lvl > 0.5) {
+        if (lvl > MIC_BLOW_THRESHOLD) {
           extinguishOne()
         }
         return Math.max(0, lvl - 0.06)
@@ -983,7 +985,7 @@ function App() {
                 </button>
               )}
               <span className="rounded-full bg-white/75 px-4 py-2 text-sm text-teddy-dark">
-                Candles Left: {litCandles} | Mic Level: {micLevel.toFixed(2)} {'>'} 0.5
+                {`Candles Left: ${litCandles} | Mic Level: ${micLevel.toFixed(2)} (blow > ${MIC_BLOW_THRESHOLD})`}
               </span>
             </div>
 
