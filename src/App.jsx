@@ -433,6 +433,8 @@ function FallingTeddyGame({ score, setScore, done, onMiss, goal = FALL_CATCH_GOA
   const rafRef = useRef(null)
   const spawnRef = useRef(null)
   const moveRafRef = useRef(null)
+  const onMissRef = useRef(onMiss)
+  onMissRef.current = onMiss
 
   useEffect(() => {
     if (done) return
@@ -475,8 +477,13 @@ function FallingTeddyGame({ score, setScore, done, onMiss, goal = FALL_CATCH_GOA
             missedNow += 1
           }
         })
-        if (caughtNow > 0) setScore((s) => s + caughtNow)
-        if (missedNow > 0 && onMiss) onMiss(missedNow)
+        if (caughtNow > 0) {
+          queueMicrotask(() => setScore((s) => s + caughtNow))
+        }
+        if (missedNow > 0) {
+          const cb = onMissRef.current
+          if (cb) queueMicrotask(() => cb(missedNow))
+        }
         return next
       })
       rafRef.current = requestAnimationFrame(loop)
@@ -485,7 +492,7 @@ function FallingTeddyGame({ score, setScore, done, onMiss, goal = FALL_CATCH_GOA
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
-  }, [done, setScore, onMiss])
+  }, [done, setScore])
 
   const updateBasket = (clientX) => {
     const rect = boardRef.current?.getBoundingClientRect()
@@ -705,12 +712,15 @@ function App() {
   }
 
   const stopBgm = async () => {
-    if (!bgmCtxRef.current) return
-    if (bgmCtxRef.current.__loopTimer) clearInterval(bgmCtxRef.current.__loopTimer)
-    await bgmCtxRef.current.close()
+    const ctx = bgmCtxRef.current
+    if (!ctx) return
+    if (ctx.__loopTimer) clearInterval(ctx.__loopTimer)
     bgmCtxRef.current = null
     bgmNodesRef.current = []
     setBgmOn(false)
+    if (ctx.state !== 'closed') {
+      await ctx.close()
+    }
   }
 
   useEffect(() => {
