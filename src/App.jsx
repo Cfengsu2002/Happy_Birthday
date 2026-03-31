@@ -986,7 +986,7 @@ function App() {
                 </button>
               )}
               <span className="rounded-full bg-white/75 px-4 py-2 text-sm text-teddy-dark">
-                Candles Left: {litCandles} | Mic Level: {micLevel.toFixed(2)>0.5 ? '🔥' : '🔥'}
+              Candles Left: {litCandles} | Mic Level: {micLevel.toFixed(2)} {micLevel > 0.5 ? '💨' : '🔥'}
               </span>
             </div>
 
