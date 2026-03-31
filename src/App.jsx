@@ -849,10 +849,7 @@ function App() {
 
       {step === 0 && (
         <section className="card pop-in mx-auto w-full max-w-3xl p-8 md:p-12">
-          <h2 className="text-2xl font-bold text-teddy-dark md:text-3xl">Ready for a warm little adventure?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-teddy-dark/80">
-            Complete 3 mini games, blow out the candles, then unlock a heartfelt letter.
-          </p>
+          <h2 className="text-2xl font-bold text-teddy-dark md:text-3xl">It's a little surprise for you!</h2>
           <button
             onClick={async () => {
               if (!bgmReady) await startBgm()
