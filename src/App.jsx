@@ -876,7 +876,6 @@ function App() {
       {step === 1 && (
         <MiniGame
           title="Game 1: Catch Teddy"
-          hint="Reach 10 on the teddy. A bomb may appear — tapping it costs one point (min 0). Tapping empty space does nothing."
           done={game1Done}
           onNext={() => setStep(2)}
           lives={LIVES_PER_LEVEL}
@@ -909,7 +908,6 @@ function App() {
       {step === 2 && (
         <MiniGame
           title="Game 2: Flip & Match"
-          hint="Match all pairs. A wrong pair costs one life. Three lives; lose them all and the board reshuffles from scratch."
           done={game2Done}
           onNext={() => setStep(3)}
           lives={lives2}
@@ -938,7 +936,6 @@ function App() {
       {step === 3 && (
         <MiniGame
           title="Game 3: Catch the Teddy Bears"
-          hint={`Move the basket to catch falling teddies. Each one you miss costs one life. Catch ${FALL_CATCH_GOAL} to continue. Three lives; lose them all and the round resets.`}
           done={game3Done}
           onNext={() => setStep(4)}
           lives={lives3}
