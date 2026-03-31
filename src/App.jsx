@@ -847,6 +847,7 @@ function App() {
         </div>
         <h1 className="float-soft text-3xl font-extrabold text-teddy-dark md:text-5xl">Happy Birthday Colleen!!!</h1>
         <p className="mx-auto mt-3 max-w-xl text-lg text-teddy-dark/85 md:text-xl">I hope you like this gift!</p>
+        <p className="mx-auto mt-2 max-w-2xl text-sm text-teddy-dark/70 md:text-base"> The background music is handmade by me, so on phone please turn on ring mode to hear it.</p>
       </header>
 
       {step === 0 && (
