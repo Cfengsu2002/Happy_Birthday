@@ -11,7 +11,7 @@ I am truly grateful to have met you. You have taught me so much, slowly melting 
 
 So I have always been very grateful to you!!
 
-I no longer have extravagant hopes of gaining your love, but I still sincerely wish you a good and happy life. To me, that is already very important.
+I no longer have extravagant hopes of gaining your love, but I still sincerely wish you a good and happy life. To me, that is already very important. Thus, I really want to do something for you.
 
 Thank you for appearing in my life like a brief yet brilliant firework!!!!`
 
